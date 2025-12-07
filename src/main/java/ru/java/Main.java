@@ -28,6 +28,6 @@ public class Main {
         }
         System.out.println("Наш массив" + Arrays.toString(numbers));
         double result = Sum.summator(numbers);
-        System.out.println("РезультатGHBDDFGH: " + result);
+        System.out.println("Результат: " + result);
     }
 }
