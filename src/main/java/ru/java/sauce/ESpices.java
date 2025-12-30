@@ -9,7 +9,6 @@ public class ESpices {
     private ESpices(String txt) {
         this.txt = txt;
     }
-
     @Override
     public String toString() {
         return txt;

@@ -8,7 +8,6 @@ public class Sauce {
         this.name = name;
         this.spices = spices;
     }
-
     @Override
     public String toString() {
         return "Соус " + name + ": " + spices;

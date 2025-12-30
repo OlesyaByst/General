@@ -16,7 +16,6 @@ public class Main {
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
-
         System.out.println("-------------");
         System.out.println("Практика ООП. Исключения #1. NumberFormatException");
         Scanner sc = new Scanner(System.in);// Создаем сканер
