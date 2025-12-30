@@ -1,6 +1,5 @@
 package ru.java;
 
-import ru.java.exception.Sum;
 import ru.java.sauce.ESpices;
 import ru.java.sauce.Sauce;
 
@@ -16,18 +15,35 @@ public class Main {
         System.out.println(s1);
         System.out.println(s2);
         System.out.println(s3);
+
         System.out.println("-------------");
         System.out.println("Практика ООП. Исключения #1. NumberFormatException");
         Scanner sc = new Scanner(System.in);// Создаем сканер
         System.out.println("Сколько чисел вы хотите ввести: ");
         int count = Integer.parseInt(sc.nextLine());
-        System.out.println("Введите " + count + " чисел");
+        System.out.println("Введите числа");
+
         String[] numbers = new String[count];
         for (int i = 0; i < count; i++) {
             numbers[i] = sc.nextLine();
         }
-        System.out.println("Наш массив" + Arrays.toString(numbers));
-        double result = Sum.summator(numbers);
-        System.out.println("Результат: " + result);
+        System.out.println("Наш массив" + Arrays.toString(args));
+        Sum.main(numbers);
+    }
+}
+
+class Sum {
+
+    public static void main(String[] args) {
+        double sum = 0;
+        for (int i = 0; i < args.length; i++) {
+            try {
+                double number = Double.parseDouble(args[i]);
+                sum += number;
+            } catch (NumberFormatException e) {
+                System.out.println(args[i] + "- не является числом");
+            }
+        }
+        System.out.println("Результат= " + sum);
     }
 }
