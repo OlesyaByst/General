@@ -3,33 +3,34 @@ package ru.java.exception;
 import java.util.Scanner;
 
 public class Sum {
+    public static String numberRegex = "-?\\d+(\\.\\d+)?"; //проерка числа
 
     public static void main(String[] args) {
         if (args.length == 0) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Сколько чисел вы хотите ввести?");
+            String inputCount = sc.nextLine();
+            if (inputCount.matches("\\d+")) {
+                int elementsCount = Integer.parseInt(inputCount);
+                args = new String[elementsCount];
 
-            try {
-                int count = Integer.parseInt(sc.nextLine());
-                args = new String[count];
-
-                System.out.println("Введите числа:");
-                for (int i = 0; i < count; i++) {
+                for (int i = 0; i < elementsCount; i++) {
+                    System.out.println("Введите число номер " + (i + 1) + ":");
                     args[i] = sc.nextLine();
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Ошибка: нужно было ввести целое число");
+            } else {
+                System.out.println("Ошибка: введено не число.");
+                return;
             }
         }
 
 
         double sum = 0; //подсчет суммы
-        for (int i = 0; i < args.length; i++) {
-            try {
-                double number = Double.parseDouble(args[i]);
-                sum += number;
-            } catch (NumberFormatException e) {
-                System.out.println(args[i] + "- не является числом");
+        for (String argument : args) { //элементы-массива
+            if (argument != null && argument.matches(numberRegex)) {
+                sum += Double.parseDouble(argument);
+            } else {
+                System.out.println("пропущено не корректное значение");
             }
         }
         System.out.println("Результат= " + sum);
