@@ -1,14 +1,16 @@
 package ru.java.sauce;
 
-public class ESpices {
-    private String txt;
-    public static final ESpices VERY_SHARP = new ESpices("Очень острый");
-    public static final ESpices SHARP = new ESpices("Острый");
-    public static final ESpices NOT_SHARP = new ESpices("Не острый");
+public enum ESpices {
+    VERY_SHARP("Очень острый"),
+    SHARP("Острый"),
+    NOT_SHARP("Не острый");
 
-    private ESpices(String txt) {
+    private final String txt;
+
+    ESpices(String txt) {
         this.txt = txt;
     }
+
     @Override
     public String toString() {
         return txt;
